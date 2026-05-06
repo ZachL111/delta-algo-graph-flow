@@ -58,6 +58,13 @@ foreach ($pathPattern in $knownPaths) {
   }
 }
 
-ocaml tests/test.ml
+ocaml -I src tests/test.ml
+if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
 
 powershell -NoProfile -ExecutionPolicy Bypass -File scripts/check-delta-algo-graph-detail.ps1
+
+powershell -NoProfile -ExecutionPolicy Bypass -File scripts/check-delta-algo-graph-properties.ps1
+if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+
+powershell -NoProfile -ExecutionPolicy Bypass -File scripts/check-delta-algo-graph-golden.ps1
+if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
