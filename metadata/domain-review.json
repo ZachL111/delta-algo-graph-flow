@@ -1,0 +1,73 @@
+{
+  "repo": "delta-algo-graph-flow",
+  "language": "OCaml",
+  "category": "Algorithms",
+  "goal": "Package an OCaml local lab for graph analysis with framed sample traffic, bounds and ordering tests, and documented operating limits.",
+  "review_model": {
+    "terms": [
+      "input width",
+      "search depth",
+      "boundary pressure",
+      "complexity"
+    ],
+    "lanes": [
+      "ship",
+      "watch",
+      "hold"
+    ],
+    "score": "signal * 2 + slack + confidence - drag * 3",
+    "purpose": "surface the domain-specific cases that need the most careful review"
+  },
+  "cases": [
+    {
+      "name": "baseline",
+      "focus": "input width",
+      "signal": 63,
+      "slack": 48,
+      "drag": 31,
+      "confidence": 72,
+      "score": 153,
+      "lane": "ship"
+    },
+    {
+      "name": "stress",
+      "focus": "search depth",
+      "signal": 51,
+      "slack": 43,
+      "drag": 12,
+      "confidence": 64,
+      "score": 173,
+      "lane": "ship"
+    },
+    {
+      "name": "edge",
+      "focus": "boundary pressure",
+      "signal": 57,
+      "slack": 49,
+      "drag": 12,
+      "confidence": 74,
+      "score": 201,
+      "lane": "ship"
+    },
+    {
+      "name": "recovery",
+      "focus": "complexity",
+      "signal": 60,
+      "slack": 32,
+      "drag": 30,
+      "confidence": 77,
+      "score": 139,
+      "lane": "watch"
+    },
+    {
+      "name": "stale",
+      "focus": "input width",
+      "signal": 68,
+      "slack": 44,
+      "drag": 20,
+      "confidence": 90,
+      "score": 210,
+      "lane": "ship"
+    }
+  ]
+}

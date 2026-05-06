@@ -59,3 +59,5 @@ foreach ($pathPattern in $knownPaths) {
 }
 
 ocaml tests/test.ml
+
+powershell -NoProfile -ExecutionPolicy Bypass -File scripts/check-delta-algo-graph-detail.ps1
